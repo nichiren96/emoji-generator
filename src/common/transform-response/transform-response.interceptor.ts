@@ -13,7 +13,6 @@ export class TransformResponseInterceptor implements NestInterceptor {
       map((data) => {
         console.log('Interceptor: transforming response');
         return {
-          success: true,
           data,
         };
       }),

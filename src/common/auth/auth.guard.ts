@@ -1,12 +1,14 @@
 import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
 import { Observable } from 'rxjs';
+import { LoggerService } from '../../logger.service';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
+  constructor(private readonly logger: LoggerService) {}
   canActivate(
     context: ExecutionContext,
   ): boolean | Promise<boolean> | Observable<boolean> {
-    console.log('Gaurd: checking authentication');
+    this.logger.info('Checking authentication');
     const request = context.switchToHttp().getRequest();
     const apiKey = request.headers['x-api-key'];
     console.log(`API Key: ${apiKey}`);
@@ -14,7 +16,7 @@ export class AuthGuard implements CanActivate {
       console.log('Gaurd: failed authentication');
       return false;
     }
-    console.log('Gaurd: passed authentication');
+    this.logger.info('Guard: authentication successful');
     return true;
   }
 }
