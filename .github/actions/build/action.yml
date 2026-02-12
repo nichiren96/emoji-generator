@@ -7,10 +7,8 @@ runs:
       uses: actions/checkout@v3
     - name: Install Node.js
       uses: actions/setup-node@v3
-    - name: Set up npm
-      uses: npm/action-setup@v2
       with:
-        version: latest
+        node-version: '20'
     - name: Install dependencies
       shell: bash
       run: npm install
