@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/build
+      - uses: .github/actions/build
       - name: Run tests
         run: npm test
 
@@ -19,6 +19,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/build
+      - uses: .github/actions/build
       - name: Run tests
         run: npm run test:e2e

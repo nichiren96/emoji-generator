@@ -1,7 +1,7 @@
 name: 'Build'
 description: 'Sets up repository'
 runs:
-  using: :'node24'
+  using: :'node20'
   steps:
     - name: Checkout source code
       uses: actions/checkout@v3
