@@ -4,22 +4,21 @@ on:
     branches:
       - main
   pull_request:
-    branches: [*]
+    branches: ['*']
 
 jobs:
   unit-tests:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: ./.github/actions/build 
-      - name: Run tests 
-        run: npm test 
+      - uses: ./.github/actions/build
+      - name: Run tests
+        run: npm test
 
   e2e-tests:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: ./.github/actions/build 
-      - name: Run tests 
+      - uses: ./.github/actions/build
+      - name: Run tests
         run: npm run test:e2e
-       
